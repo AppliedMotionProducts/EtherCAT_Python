@@ -3,8 +3,8 @@
 
 
 
-# Important Note:- User need to install Npcap  or WinPcap to start using PySOEM
-- https://pysoem.readthedocs.io/en/latest/requirements.html
+# Important Note:- User need to install Npcap  or WinPcap to start using PySOEM -- - https://pysoem.readthedocs.io/en/latest/requirements.html
+
 PySOEM enables basic system testing of EtherCAT slave devices with Python.
 PySOEM is a wrapper around the Simple Open EtherCAT Master (SOEM). Unlike plain C Library wrappers, PySOEM tries to provide an API that can already be used in a more pythonic way.
 
