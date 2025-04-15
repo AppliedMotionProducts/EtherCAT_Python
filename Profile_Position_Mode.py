@@ -5,7 +5,7 @@ import threading
 
 pd_thread_stop_event = threading.Event()
 master = pysoem.Master()
-master.open("\\Device\\NPF_{ABF1453B-31C2-47F8-B7DC-10C3C0C7D7A5}")
+master.open("\\Device\\NPF_{'your adapter id'}") # find your adapter id using Connection_Setup.py program
 actual_wkc = 0
 
 #TxPDO
