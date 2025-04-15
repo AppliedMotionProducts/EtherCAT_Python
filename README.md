@@ -20,7 +20,7 @@ PySOEM is a wrapper around the Simple Open EtherCAT Master (SOEM). Unlike plain 
 
 :arrow_right: **Profile Velocity Mode**   -- **Profile_Velocity_Mode.py**
 
-:arrow_right: **Profile Position Mode**
+:arrow_right: **Profile Position Mode**   -- **Profile_Position_Mode.py**
 
-:arrow_right: **Q program Mode**
+:arrow_right: **Q program Mode**  -- **Q_Mode.py** (write Q program using Applied Motion software and execute Q program using Python)
 
