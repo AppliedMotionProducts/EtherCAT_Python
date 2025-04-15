@@ -5,7 +5,7 @@ import threading
 
 pd_thread_stop_event = threading.Event()
 master = pysoem.Master()
-master.open("\\Device\\NPF_{'your adapter id'}") # find your adapter id using Connection_Setup.py program
+master.open("\\Device\\NPF_{ABF1453B-31C2-47F8-B7DC-10C3C0C7D7A5}")
 actual_wkc = 0
 
 #TxPDO
@@ -46,9 +46,9 @@ modes_of_operation = {
 def config_func():
     global device
     # profile velocity
-    device.sdo_write(0x6081, 0, bytes(ctypes.c_int32(50000))) #check command pulses per rev, for some products it is 10000 = rev
+    device.sdo_write(0x6081, 0, bytes(ctypes.c_int32(40000))) #check command pulses per rev, for some products it is 10000 = rev
     # profile acceleration
-    device.sdo_write(0x6083, 0, bytes(ctypes.c_int32(50000))) # 5 rev/sec, if pulses per rev is 10000
+    device.sdo_write(0x6083, 0, bytes(ctypes.c_int32(50000)))
     # profile deceleration
     device.sdo_write(0x6084, 0, bytes(ctypes.c_int32(50000)))
 
@@ -75,13 +75,16 @@ if master.config_init() > 0:
         proc_thread = threading.Thread(target=processdata_thread)
         proc_thread.start()
 
+        master.send_processdata()  # this is actually done in the "processdata_thread" - maybe it is not needed here
+        master.receive_processdata(2000)  # this is actually done in the "processdata_thread" - maybe it is not needed here
+
         master.write_state()
         master.state_check(pysoem.OP_STATE, 5_000_000)
 
         if master.state == pysoem.OP_STATE:
             output_data = OutputPdo()
             output_data.modes_of_operation = modes_of_operation['Profile position mode']
-            output_data.target_position = 500000  # counts ( 20000 = 1 rev/sec)
+            output_data.target_position = 155555  # counts ( 20000 = 1 rev/sec)
 
 
             for control_cmd in [6,7,15,31]:  # the 31 is necessary to update the "Target position", search you manual for "New set-point" - only required in pp mode
@@ -89,13 +92,13 @@ if master.config_init() > 0:
                 device.output = bytes(output_data)  # that is the actual change of the PDO output data
                 master.send_processdata()
                 master.receive_processdata(1_000)
-                time.sleep(0.01)  # you may need to increase this sleep
+                time.sleep(0.05)  # you may need to increase this sleep
 
             try:
                 while 1:
                     master.send_processdata()
                     master.receive_processdata(1_000)
-                    time.sleep(0.01)
+                    time.sleep(0.05)
             except KeyboardInterrupt:
                 print('stopped')
             # zero everything
