@@ -11,7 +11,7 @@ PySOEM is a wrapper around the Simple Open EtherCAT Master (SOEM). Unlike plain 
 
 
 
-🎯 Use **Connetion_Setup.py** file to find the adapter on the PC and confirm connection with the drive
+🎯 Use **Connetion_Setup.py** file to find the adapter ID on the PC and confirm connection with the drive
 
 📌 Users can use different control mode to control the motion
 
