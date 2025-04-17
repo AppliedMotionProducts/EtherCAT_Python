@@ -19,12 +19,12 @@ master.open("\\Device\\NPF_{'your adapter id}")
 
 if master.config_init() > 0:
    for device in master.slaves:
-      print(f'Found Device {device.name}')
+      print(f'✅Found Device {device.name}')
 else:
-   print('no device found')
+   print('❌ no device found')
 
 
 master.state
 if master.config_init() > 0:
-    print("Found", master.config_init(), "slaves")
+    print("✅ Found", master.config_init(), "slaves")
 
