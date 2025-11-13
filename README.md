@@ -24,6 +24,9 @@ PySOEM is a wrapper around the Simple Open EtherCAT Master (SOEM). Unlike plain 
 
 :arrow_right: **Q program Mode**  -- **Q_Mode.py** (write Q program using Applied Motion software and execute Q program using Python)
 
+:arrow_right: **Homing Mode**  -- **Homing Mode.py** (Check EtherCAT user manual for Homing method details)
+
+
 
 📞 Contact Technical support for more assistance
 
