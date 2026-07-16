@@ -1,7 +1,7 @@
 #  🚀  Applied Motion's EtherCAT products can be controlled using Python 💻
 ![Python](https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg)
 
-
+# Make sure you have safety in place when performing motion task on Axis, it is advised to perform testing without load first 
 
 # Important Note:- User need to install Npcap  or WinPcap to start using PySOEM -- - https://pysoem.readthedocs.io/en/latest/requirements.html
 
@@ -21,6 +21,8 @@ PySOEM is a wrapper around the Simple Open EtherCAT Master (SOEM). Unlike plain 
 :arrow_right: **Profile Velocity Mode**   -- **Profile_Velocity_Mode.py**
 
 :arrow_right: **Profile Position Mode**   -- **Profile_Position_Mode.py**
+
+:arrow_right: **Profile Torque Mode**   -- **Profile_Torque_Mode.py**
 
 :arrow_right: **Q program Mode**  -- **Q_Mode.py** (write Q program using Applied Motion software and execute Q program using Python)
 
